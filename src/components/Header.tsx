@@ -1,3 +1,6 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Logo from "./Logo";
 
@@ -9,21 +12,28 @@ interface NavLink {
 export default function Header() {
   const links: NavLink[] = [
     { name: "Home", href: "/" },
-    { name: "Filmes", href: "/filmes" },
     { name: "Contato", href: "/contato" },
   ];
 
+  const pathname = usePathname();
+
   return (
-    // desenvolver um header para o site do cinema
     <nav className="bg-gray-800 flex justify-between items-center h-16 p-4">
       <Logo />
 
-      <ul className="flex gap-4 list-none">
-        {links.map((link, index) => (
-          <li key={index}>
-            <Link href={link.href}>{link.name}</Link>
-          </li>
-        ))}
+      <ul className="flex gap-4 list-none ">
+        {links.map((link) => {
+          const isActive = pathname.endsWith(link.href);
+
+          return (
+            <Link
+              className={isActive ? "text-cyan-500" : "text-white"}
+              href={link.href}
+              key={link.name}>
+              {link.name}
+            </Link>
+          );
+        })}
       </ul>
     </nav>
   );
