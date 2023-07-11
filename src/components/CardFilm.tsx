@@ -3,15 +3,15 @@ import Image from "next/image";
 import { Movie } from "@/types/Movies";
 
 interface CardFilmeProps {
-    movie: Movie;
-    imageUrl: string;
+  movie: Movie;
+  imageUrl: string;
 }
 
-export default function CardFilm({movie, imageUrl}: CardFilmeProps) {
+export default function CardFilm({ movie, imageUrl }: CardFilmeProps) {
   return (
     <li key={movie.id}>
       <Link href="#">
-        <div>
+        <div className="flex flex-col w-[220px] h-[400px] text-slate-700  justify-between items-center">
           <Image
             className="rounded-lg"
             src={`${imageUrl}${movie.poster_path}`}
@@ -19,6 +19,8 @@ export default function CardFilm({movie, imageUrl}: CardFilmeProps) {
             height={500}
             alt={movie.title}
           />
+          <h2>{movie.title}</h2>
+          <p>Classificacao</p>
         </div>
       </Link>
     </li>

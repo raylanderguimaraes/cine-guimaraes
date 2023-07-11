@@ -1,6 +1,8 @@
 import { EnvVariables } from "@/types/EnvVariables";
 import { Movie } from "@/types/Movies";
 import CardFilm from "@/components/CardFilm";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
 const env: EnvVariables = {
   apiKey: process.env.API_KEY || "",
