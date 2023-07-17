@@ -9,6 +9,7 @@ O projeto ainda está em desenvolvimento, estou utilizando ele para estudar e co
 - Typescript
 - Tailwindcss
 - TMDB API
+- Swiper
 
 ## Projeto em andamento
 
