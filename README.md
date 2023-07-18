@@ -13,8 +13,9 @@ O projeto ainda está em desenvolvimento, estou utilizando ele para estudar e co
 
 ## Projeto em andamento
 
-![](/public/assets/Captura%20de%20tela%202023-07-17%20094005.png)
-![](/public/assets/Captura%20de%20tela%202023-07-17%20094033.png)
+![](/public/assets/Captura%20de%20tela%202023-07-18%20101504.png)
+![](/public/assets/Captura%20de%20tela%202023-07-18%20101552.png)
+
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
