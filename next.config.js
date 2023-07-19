@@ -5,8 +5,10 @@ const nextConfig = {
   },
   env: {
     apiKey: "api_key=74c1852101385c9f79e7ba929e418a7e",
-    BASE_URL: "https://api.themoviedb.org/3/movie/now_playing?",
+    URL_BASE: "https://api.themoviedb.org/3/movie/",
+    URL_TRAILER: "https://api.themoviedb.org/3/movie/",
     IMAGE_URL: "https://www.themoviedb.org/t/p/w220_and_h330_face",
+
   },
 };
 

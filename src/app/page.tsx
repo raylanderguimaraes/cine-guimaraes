@@ -12,26 +12,22 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-const env: EnvVariables = {
-  apiKey: process.env.API_KEY || "",
-  URL_BASE: process.env.URL_BASE || "",
-  IMAGE_URL: process.env.IMAGE_URL || "",
-};
-
 const apiKey = process.env.apiKey || "";
 const URL_BASE = process.env.URL_BASE || "";
+const IMAGE_URL = process.env.IMAGE_URL || "";
+const URL_TRAILER = process.env.URL_TRAILER || "";
+
+const URL_DATA = `${URL_BASE}now_playing?${apiKey}&language=pt-BR&page=1`;
+
+// Assim deve ser a url pra buscar informacoes sobre o trailer do filme, descobrir uma forma de colocalo num player
+// https://api.themoviedb.org/3/movie/678512/videos?api_key=74c1852101385c9f79e7ba929e418a7e&language=pt-BR
 
 export default function Home() {
   const [movies, setMovies] = useState<Movie[]>();
 
   async function getData() {
     try {
-      const res = await fetch(
-        `https://api.themoviedb.org/3/movie/now_playing?api_key=74c1852101385c9f79e7ba929e418a7e&language=pt-BR&page=1`
-
-        // Descobrir uma forma de colocar a URL utilizando as variáveis de ambiente
-        // `${URL_BASE}${apiKey}&language=pt-BR&page=1`
-      );
+      const res = await fetch(URL_DATA);
 
       const moviesData = await res.json();
       setMovies(moviesData.results);
@@ -39,6 +35,9 @@ export default function Home() {
       console.log("Erro ao obter os dados dos filmes: ", error);
     }
   }
+
+  // url pra pegar o vídeo do trailer
+  // `${URL_TRAILER}${movie.id}/videos?${apiKey}&append_to_response=videos&language=pt-BR`
 
   useEffect(() => {
     getData();
@@ -49,7 +48,7 @@ export default function Home() {
   return (
     <main className="max-w-screen-lg mx-auto">
       <div className="flex flex-col items-center justify-center py-8">
-        <h1 className="font-bold text-4xl">FILMES EM CARTAZ</h1>
+        <h1 className="font-bold text-4xl uppercase">Filmes em Cartaz</h1>
         <p className="font-semibold text-lg text-slate-500">
           Os melhores filmes você encontra aqui
         </p>
