@@ -13,7 +13,7 @@ O projeto ainda está em desenvolvimento, estou utilizando ele para estudar e co
 
 ## Projeto em andamento
 
-![](/public/assets/Captura%20de%20tela%202023-07-18%20101504.png)
+![](/public/assets/Captura%20de%20tela%202023-07-20%20105443.png)
 ![](/public/assets/Captura%20de%20tela%202023-07-18%20101552.png)
 
 
