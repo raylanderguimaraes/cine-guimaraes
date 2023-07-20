@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-// import { EnvVariables } from "@/types/EnvVariables";
+import { EnvVariables } from "@/types/EnvVariables";
 import { Movie } from "@/types/Movies";
 import CardFilm from "@/components/CardFilm";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -12,15 +12,13 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-const API_KEY = process.env.API_KEY || "";
-const URL_BASE = process.env.URL_BASE || "";
-
-
-
-
 // const URL_TRAILER = process.env.URL_TRAILER || "";
 
+const API_KEY = process.env.NEXT_PUBLIC_API_KEY || "";
+const URL_BASE = process.env.NEXT_PUBLIC_URL_BASE || "";
 const URL_DATA = `${URL_BASE}now_playing?${API_KEY}&language=pt-BR&page=1`;
+
+
 
 // Assim deve ser a url pra buscar informacoes sobre o trailer do filme, descobrir uma forma de colocalo num player
 // https://api.themoviedb.org/3/movie/678512/videos?api_key=74c1852101385c9f79e7ba929e418a7e&language=pt-BR

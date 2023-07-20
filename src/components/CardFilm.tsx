@@ -4,9 +4,9 @@ import Image from "next/image";
 import { Movie } from "@/types/Movies";
 import { useState } from "react";
 
-const API_KEY = process.env.API_KEY || "";
-const URL_BASE = process.env.URL_BASE || "";
-const IMAGE_URL = process.env.IMAGE_URL || "";
+const API_KEY = process.env.NEXT_PUBLIC_API_KEY || "";
+const URL_BASE = process.env.NEXT_PUBLIC_URL_BASE || "";
+const IMAGE_URL = process.env.NEXT_PUBLIC_IMAGE_URL || "";
 
 interface CardFilmProps {
   movie: Movie;
