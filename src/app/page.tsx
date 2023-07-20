@@ -27,9 +27,19 @@ export default function Home() {
 
   const [videoUrl, setVideoUrl] = useState("");
 
-  function handleOpenTrailer(url: string) {
-    setVideoUrl(url);
+  const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
+
+  function handleOpenTrailer(
+    videUrl: string,
+    selectedMovie: Movie,
+    runtime: number,
+    genresString: string
+  ) {
+    setVideoUrl(videUrl);
+    setSelectedMovie({ ...selectedMovie, runtime, genresString });
   }
+
+  // console.log(selectedMovie?.runtime)
 
   async function getData() {
     try {
@@ -86,15 +96,36 @@ export default function Home() {
 
       {/* Fazer aqui uma div que apareça o trailer do filme, sua sinopse e duração do filme, colocando um botão que direciona para uma página de compra do ingresso, que pode ser implementada depois */}
 
-      <div className="py-4">
-        <iframe
-          className="hover:rounded-lg duration-500"
-          width="560"
-          height="315"
-          src={videoUrl}
-          title="Trailer do Filme"
-          allowFullScreen
-        />
+      <div className="py-4 flex gap-4">
+        <div>
+          <iframe
+            className="hover:rounded-lg duration-500"
+            width="560"
+            height="315"
+            src={videoUrl}
+            title="Trailer do Filme"
+            allowFullScreen
+          />
+        </div>
+
+        <div className="text-justify ">
+          {selectedMovie && (
+            <>
+              <h2 className="font-semibold text-gray-800 text-lg ">
+                {selectedMovie.title}
+              </h2>
+              <p>
+                <span className="font-semibold">Gêneros:</span>{" "}
+                {selectedMovie.genresString}
+              </p>
+              <p> {selectedMovie.overview}</p>
+              <p>
+                <span className="font-semibold">Duração:</span>{" "}
+                {selectedMovie.runtime} minutos
+              </p>
+            </>
+          )}
+        </div>
       </div>
     </main>
   );

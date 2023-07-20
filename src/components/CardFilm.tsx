@@ -10,7 +10,12 @@ const IMAGE_URL = process.env.IMAGE_URL || "";
 
 interface CardFilmProps {
   movie: Movie;
-  onVideoObtained: (videoUrl: string) => void;
+  onVideoObtained: (
+    videoUrl: string,
+    selectedMovie: Movie,
+    runtime: number,
+    genresString: string
+  ) => void;
 }
 
 export default function CardFilm({ movie, onVideoObtained }: CardFilmProps) {
@@ -24,9 +29,15 @@ export default function CardFilm({ movie, onVideoObtained }: CardFilmProps) {
       const data = await movieTrailer.json();
       const videoKey = data.videos.results?.[0]?.key || "";
       const videoUrl = `https://youtube.com/embed/${videoKey}`;
+      const runtime = data.runtime || 0;
+      const genres = data.genres.map((genre) => genre.name);
+      const genresString = genres.join(", ");
       setVideoUrl(videoUrl);
-      onVideoObtained(videoUrl);
-      console.log(data);
+      onVideoObtained(videoUrl, movie, runtime, genresString);
+
+      // console.log(data);
+      // console.log(runtime);
+      // console.log(genresString)
     } catch (error) {
       console.log("Erro ao trazer o video do filme", error);
     }
