@@ -6,4 +6,5 @@ export interface Movie {
     overview: string;
     release_date: string;
     runtime: number;
+    genresString: string;
 }

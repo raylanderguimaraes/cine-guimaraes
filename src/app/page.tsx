@@ -15,6 +15,9 @@ import "swiper/css/scrollbar";
 const API_KEY = process.env.API_KEY || "";
 const URL_BASE = process.env.URL_BASE || "";
 
+
+
+
 // const URL_TRAILER = process.env.URL_TRAILER || "";
 
 const URL_DATA = `${URL_BASE}now_playing?${API_KEY}&language=pt-BR&page=1`;

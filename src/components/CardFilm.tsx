@@ -18,6 +18,10 @@ interface CardFilmProps {
   ) => void;
 }
 
+interface TempGenre {
+  name: string;
+}
+
 export default function CardFilm({ movie, onVideoObtained }: CardFilmProps) {
   const [videoUrl, setVideoUrl] = useState("");
 
@@ -30,7 +34,9 @@ export default function CardFilm({ movie, onVideoObtained }: CardFilmProps) {
       const videoKey = data.videos.results?.[0]?.key || "";
       const videoUrl = `https://youtube.com/embed/${videoKey}`;
       const runtime = data.runtime || 0;
-      const genres = data.genres.map((genre) => genre.name);
+      const genres: TempGenre[] = data.genres.map(
+        (genre: TempGenre) => genre.name
+      );
       const genresString = genres.join(", ");
       setVideoUrl(videoUrl);
       onVideoObtained(videoUrl, movie, runtime, genresString);
